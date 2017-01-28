@@ -26,9 +26,9 @@
             var chance = wins / this.times;
             return {
                 //胜率
-                chance: chance * 100 + '%',
+                chance: (chance * 100).toFixed(2) + '%',
                 //期望收益
-                expect: (chance * (this.players - 1) * 2 - (1 - chance) * 5) * 20 + '%'
+                expect: ((chance * (this.players - 1) * 2 - (1 - chance) * 5) * 20).toFixed(2) + '%'
             }
         },
         init: function (pokerGroup, players) {

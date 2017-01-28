@@ -25,9 +25,9 @@
     window.onload = function () {
         var tableNode = document.getElementById('pokerList');
         var pokerKeys = Object.keys(window.pokerMap);
-        pairs.forEach(function (pair) {
+        pokerKeys.forEach(function (key) {
             var trNode = document.createElement('tr');
-            pokerKeys.forEach(function (key) {
+            pairs.forEach(function (pair) {
                 var tdNode = document.createElement('td');
                 var value = key +' ' + pair;
                 tdNode.innerText = value;
