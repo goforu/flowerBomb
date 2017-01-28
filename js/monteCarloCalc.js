@@ -68,7 +68,7 @@
                     //同花
                     return 3;
                 }
-            } else if (pokerArr[0][0] + 1 === pokerArr[1][0] && (pokerArr[1][0] + 1 === pokerArr[2][0] || pokerArr[0][0] === 2 && pokerArr[2][0] === 13)) {
+            } else if (pokerArr[0][0] + 1 === pokerArr[1][0] && (pokerArr[1][0] + 1 === pokerArr[2][0] || pokerArr[0][0] === 1 && pokerArr[2][0] === 13)) {
                 //顺子
                 return 2;
             } else if (pokerArr[0][0] === pokerArr[1][0] || pokerArr[1][0] === pokerArr[2][0] || pokerArr[2][0] === pokerArr[0][0]) {
