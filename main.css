@@ -1,0 +1,14 @@
+.pokers td{
+    display: inline-block;
+    border: 1px solid  black;
+    text-align: center;
+    width: 3em;
+}
+
+.pokers td.selected{
+    border-color: red;
+}
+
+#players {
+    width: 4em;
+}
