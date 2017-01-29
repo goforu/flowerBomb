@@ -54,8 +54,8 @@
         } else if (selectedPokers.length < 3) {
             //最多三张牌
             selectedPokers.push(pokerNode.innerText);
-            pokerNodeClasses.add('selected');
             refreshResultData();
+            pokerNodeClasses.add('selected');
         }
     }
 
@@ -67,10 +67,16 @@
         var rateNode = document.getElementById('rate'),
             expectNode = document.getElementById('expect');
         if (selectedPokers.length === 3 && playerNode.value) {
-            window.monterCarlo.init(selectedPokers, playerNode.value);
-            var result = window.monterCarlo.getCalcResult();
-            rateNode.innerText = result.chance;
-            expectNode.innerText = result.expect;
+            //遮罩
+            var overlay = document.getElementById('overlay');
+            overlay.style.width = '100%';
+            setTimeout(function() {
+                window.monterCarlo.init(selectedPokers, playerNode.value);
+                var result = window.monterCarlo.getCalcResult();
+                rateNode.innerText = result.chance;
+                expectNode.innerText = result.expect;
+                overlay.style.width = '0%';
+            },0);
         } else {
             rateNode.innerText = '';
             expectNode.innerText = '';
