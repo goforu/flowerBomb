@@ -2,7 +2,7 @@
     'use strict';
     window.monterCarlo = {
         //随机局数
-        times: 100000,
+        times: 10000,
         players: 2,
         //自己标准化后的牌
         pokerArr: null,
@@ -62,16 +62,19 @@
                 return 5;
             } else if (pokerArr[0][1] === pokerArr[1][1] && pokerArr[0][1] === pokerArr[2][1]) {
                 //同花顺
-                if (pokerArr[0][0] + 1 === pokerArr[1][0] && (pokerArr[1][0] + 1 === pokerArr[2][0] || pokerArr[0][0] === 2 && pokerArr[2][0] === 13)) {
+                if (pokerArr[0][0] + 1 === pokerArr[1][0] && (pokerArr[1][0] + 1 === pokerArr[2][0]
+                    || pokerArr[0][0] === 2 && pokerArr[2][0] === 13)) {
                     return 4;
                 } else {
                     //同花
                     return 3;
                 }
-            } else if (pokerArr[0][0] + 1 === pokerArr[1][0] && (pokerArr[1][0] + 1 === pokerArr[2][0] || pokerArr[0][0] === 1 && pokerArr[2][0] === 13)) {
+            } else if (pokerArr[0][0] + 1 === pokerArr[1][0] && (pokerArr[1][0] + 1 === pokerArr[2][0]
+                || pokerArr[0][0] === 1 && pokerArr[2][0] === 13)) {
                 //顺子
                 return 2;
-            } else if (pokerArr[0][0] === pokerArr[1][0] || pokerArr[1][0] === pokerArr[2][0] || pokerArr[2][0] === pokerArr[0][0]) {
+            } else if (pokerArr[0][0] === pokerArr[1][0] || pokerArr[1][0] === pokerArr[2][0]
+                || pokerArr[2][0] === pokerArr[0][0]) {
                 //对子
                 return 1;
             } else {
@@ -107,14 +110,16 @@
                     //豹子
                     case 5:
                         return this.pokerArr[0][0] > groupArr[0][0];
-                    //同花顺
+                    //同花顺或顺子
                     case 4:
+                    case 2:
                         // A12特殊情况
                         if (this.pokerArr[2][0] === 13 && this.pokerArr[0][0] === 1) return false;
                         if (groupArr[2][0] === 13 && groupArr[0][0] === 1) return true;
                         return this.pokerArr[2][0] > groupArr[2][0];
-                    //同花
+                    //同花或乱牌
                     case 3:
+                    case 0:
                         if (this.pokerArr[2][0] > groupArr[2][0]) return true;
                         else if (this.pokerArr[2][0] === groupArr[2][0]) {
                             if (this.pokerArr[1][0] > groupArr[1][0]) return true;
@@ -124,12 +129,6 @@
                             return false;
                         }
                         return false;
-                    //顺子
-                    case 2:
-                        // A12特殊情况
-                        if (this.pokerArr[2][0] === 13 && this.pokerArr[0][0] === 1) return false;
-                        if (groupArr[2][0] === 13 && groupArr[0][0] === 1) return true;
-                        return this.pokerArr[2][0] > groupArr[2][0];
                     //对子
                     case 1:
                         var pnum = this.pokerArr[0][0],
@@ -148,17 +147,6 @@
                         if (pnum > pnum2) return true;
                         else if (pnum === pnum2) {
                             return snum > snum2;
-                        }
-                        return false;
-                    //乱牌
-                    case 0:
-                        if (this.pokerArr[2][0] > groupArr[2][0]) return true;
-                        else if (this.pokerArr[2][0] === groupArr[2][0]) {
-                            if (this.pokerArr[1][0] > groupArr[1][0]) return true;
-                            else if (this.pokerArr[1][0] === groupArr[1][0]) {
-                                return this.pokerArr[0][0] > groupArr[0][0]
-                            }
-                            return false;
                         }
                         return false;
                 }
