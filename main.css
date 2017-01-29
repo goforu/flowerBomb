@@ -6,7 +6,7 @@
 }
 
 .pokers td.selected{
-    border-color: red;
+    background-color: grey;
 }
 
 #players {

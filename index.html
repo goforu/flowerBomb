@@ -8,7 +8,7 @@
 </head>
 <body onload="onload()">
 <label for="players">游戏人数：</label>
-<input type="number" id="players" min="2" max="17">
+<input type="number" id="players" min="2" max="17" placeholder="2-17">
 <label for="selectedPokers">牌面：</label>
 <span id="selectedPokers"></span>
 
@@ -17,11 +17,14 @@
 </table>
 
 <div id="result">
-        <div>全场最大概率：<span id="rate"></span></div>
-        <div>个人明牌下收益期望（按2:5算）：<span id="expect"></span></div>
+    <div>全场最大比率：<span id="rate"></span></div>
+    <div>个人明牌下收益期望（按2:5算）：<span id="expect"></span></div>
 </div>
 
-<!--<img src="./img/pay.png">-->
+<h3>说明</h3>
+<p>计算会有延迟，最后一次点击或输入卡顿属于正常现象，请勿重复操作。因为网页正在以你手持的牌组，进行十万次对局。</p>
+<p>哈哈，赢了钱，欢迎打赏(＾－＾)V</p>
+<img src="./img/pay.png">
 
 </body>
 

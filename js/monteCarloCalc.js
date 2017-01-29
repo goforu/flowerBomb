@@ -2,7 +2,7 @@
     'use strict';
     window.monterCarlo = {
         //随机局数
-        times: 10000,
+        times: 100000,
         players: 2,
         //自己标准化后的牌
         pokerArr: null,
@@ -34,16 +34,16 @@
         init: function (pokerGroup, players) {
             this.players = players;
             //除了自己的牌，剩余的牌
-            this.pokers = [].concat(window.pokers);
+            this.pokers = window.pokers.slice();
             pokerGroup.forEach((function (poker) {
                 this.pokers.splice(this.pokers.indexOf(poker), 1);
             }).bind(this));
-            this.pokerArr = this.standarize(pokerGroup);
+            this.pokerArr = this.standardize(pokerGroup);
             this.rate = this.rateGroup(this.pokerArr);
             this.reset();
         },
-        //标准数组加排序
-        standarize: function (pokerGroup) {
+        //标准化数组加排序
+        standardize: function (pokerGroup) {
             var pokerArr = [];
             pokerGroup.forEach(function (poker) {
                 var p = poker.split(' ');
@@ -99,7 +99,7 @@
         },
         //比较牌面大小
         isLarger: function (group) {
-            var groupArr = this.standarize(group);
+            var groupArr = this.standardize(group);
             var randomRate = this.rateGroup(groupArr);
             if (this.rate > randomRate) {
                 return true;

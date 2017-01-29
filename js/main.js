@@ -29,7 +29,7 @@
             var trNode = document.createElement('tr');
             pairs.forEach(function (pair) {
                 var tdNode = document.createElement('td');
-                var value = key +' ' + pair;
+                var value = key + ' ' + pair;
                 tdNode.innerText = value;
                 window.pokers.push(value);
                 tdNode.addEventListener('click', togglePoker);
@@ -66,12 +66,12 @@
         var playerNode = document.getElementById('players');
         var rateNode = document.getElementById('rate'),
             expectNode = document.getElementById('expect');
-        if(selectedPokers.length === 3 && playerNode.value) {
+        if (selectedPokers.length === 3 && playerNode.value) {
             window.monterCarlo.init(selectedPokers, playerNode.value);
             var result = window.monterCarlo.getCalcResult();
             rateNode.innerText = result.chance;
             expectNode.innerText = result.expect;
-        }else {
+        } else {
             rateNode.innerText = '';
             expectNode.innerText = '';
         }
