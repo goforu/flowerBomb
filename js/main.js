@@ -76,7 +76,7 @@
                 rateNode.innerText = result.chance;
                 expectNode.innerText = result.expect;
                 overlay.style.width = '0%';
-            },0);
+            },50);
         } else {
             rateNode.innerText = '';
             expectNode.innerText = '';
